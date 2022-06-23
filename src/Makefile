@@ -11,11 +11,15 @@ CPPFLAGS += -std=c++11 -DUNIT_TEST -Wall
 GTEST_LIBS =  -L${GTEST_INSTALL_DIR}/lib -lgtest -lgtest_main -lpthread
 OBJECTS = $(SRC:%.c=%.o) $(SRC_CPP:%.cpp=%.o)
 
+.PHONY: all clean test testrun
+
 all : $(TESTS)
 	./$^
 
 clean :
 	$(RM) $(TESTS) *.o
+
+test : $(TESTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
