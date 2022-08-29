@@ -18,4 +18,5 @@ void update(void)
 {
 	TRACE("%d -> %d\n", sample_init, sample_init + 1);
 	sample_init++;
+	sample_init
 }
